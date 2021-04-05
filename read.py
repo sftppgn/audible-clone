@@ -4,30 +4,22 @@ import time
 # while (True):
 	# print (pyautogui.position())
 
-
-# cv2.cvtColor takes a numpy ndarray as an argument
 import numpy as nm
-
 import pytesseract
-  
-# importing OpenCV
 import cv2
-  
 from PIL import ImageGrab
-
 import pyttsx3
 engine = pyttsx3.init()
-# engine.setProperty('voice', voices[1].id) 
 
 textarray=[]  
   
 def imToString():
   
     # Path of tesseract executable
-    pytesseract.pytesseract.tesseract_cmd ="tesseract.exe"
+    #pytesseract.pytesseract.tesseract_cmd ="tesseract.exe"
+    pytesseract.pytesseract.tesseract_cmd ="C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
    
-    # ImageGrab-To capture the screen image in a loop. 
-    # Bbox used to capture a specific area.
+    # change depending on your desired capture area, use the pyautogui commented out portion above to check xy coords - first set is top left, 2nd send is bottom right. (xtop, ytop, xbot, ybot)
     cap = ImageGrab.grab(bbox =(5, 110, 1335, 1032))
   
     # Converted the image to monochrome for it to be easily 
@@ -37,9 +29,9 @@ def imToString():
             lang ='eng')
     return(tesstr)
   
-
 while (True):
 	textarray=imToString()
+	
 	engine.say(textarray)
 	engine.runAndWait()
 	time.sleep(1)
