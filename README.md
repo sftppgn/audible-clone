@@ -5,30 +5,45 @@ The text contained in the image is extracted to a string "tesstr" prior to being
 **usage: python read.py**
 
 You need to perform these steps, summarized here and explained in detail below.
+
 #1 install tesseract 
+
 #2 verify or change the tesseract path
+
 #3 install other pip components
+
 #4 adjust pixel locations
 
 **#1 install tesseract**
+
 Download and install tesseract from https://github.com/UB-Mannheim/tesseract/wiki.  You'll want to install it in C:\Program Files\Tesseract-OCR, or make note of where you install it due to the next requirement.
 
 **#2 verify or change the tesseract path**
+
 Line 20 contains the tesseract path.  You'll need to install tesseract to this location or change the line to match your tesseract location.
 
 pytesseract.pytesseract.tesseract_cmd ="C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 **#3 install other pip components**
+
 pip install -r requirements.txt
+
 where requirements.txt contains:
+
 PyAutoGUI
+
 numpy
+
 pytesseract
+
 opencv-python
+
 Pillow
+
 pyttsx3
 
 **#4 adjust pixel locations**
+
 Uncommenting lines 4 and 5 and running the program will activate a loop in the terminal that displays the mouse cursor location.  Use this to identify the pixel locations on your screen.
 
 These are the pixel locations you'll need to change:
